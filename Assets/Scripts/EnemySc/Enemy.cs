@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+
+    [SerializeField] protected float health;
+    [SerializeField] protected Rigidbody2D rb;
+
+    void Start()
+    {
+        
+    }
+
+    
+    public void TakeDamage(float dmg)
+    {
+        health -= dmg;
+        HurtSequence();
+
+        if (health <= 0) 
+        {
+            DeathSequence();
+        }
+        
+    }
+
+
+    public virtual void HurtSequence()
+    {
+        //Damage animation
+    }
+     public virtual void DeathSequence()
+    {
+        //Destroy animation
+    }
+
+
+
+}
