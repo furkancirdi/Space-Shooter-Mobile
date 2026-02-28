@@ -6,6 +6,7 @@ public class Meteor : Enemy
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     private float speed;
+    [SerializeField] private float rotateSpeed;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class Meteor : Enemy
 
     void Update()
     {
-        
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
 
 
@@ -39,6 +40,12 @@ public class Meteor : Enemy
         }
 
         
+    }
+
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
 

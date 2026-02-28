@@ -23,7 +23,6 @@ public class PlayerControls : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {   
         if (Touch.activeTouches.Count>0)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6593403814797495200}
   - component: {fileID: 2156211871984942832}
   - component: {fileID: 6535560523812290966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeteorOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   rb: {fileID: 2156211871984942832}
   minSpeed: 8
   maxSpeed: 15
+  rotateSpeed: 100
 --- !u!50 &2156211871984942832
 Rigidbody2D:
   serializedVersion: 5
