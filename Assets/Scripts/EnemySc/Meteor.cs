@@ -27,7 +27,7 @@ public class Meteor : Enemy
     
     public override void DeathSequence()
     {
-        //Destroy animation
+        Destroy(gameObject);
     }
 
 

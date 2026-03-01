@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb82ac5584ffc8438ad8c12813d2659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Meteor
-  health: 0
+  health: 2
   rb: {fileID: 5832905519704641783}
   minSpeed: 8
   maxSpeed: 15
