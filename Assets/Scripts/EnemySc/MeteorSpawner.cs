@@ -7,6 +7,8 @@ public class MeteorSpawner : MonoBehaviour
 
     [SerializeField] private GameObject [] meteor;
     [SerializeField] private float spawnTime;
+    [SerializeField] private bool randomRotationAndSize = true;
+    private bool ready;
     private float timer = 0f;
     private int i;
 
@@ -23,14 +25,25 @@ public class MeteorSpawner : MonoBehaviour
 
     void Update()
     {
+        if (!ready) return;
+
         timer += Time.deltaTime;
 
         if (timer > spawnTime)
         {
             i = Random.Range(0, meteor.Length);
-            GameObject obj = Instantiate(meteor[i], new Vector3(Random.Range(maxLeft, maxRight), yPos, -5),Quaternion.Euler(0,0,Random.Range(0,360)));
-            float size = Random.Range(0.5f, 1.5f);
-            obj.transform.localScale = new Vector3(size, size, 1);
+            Vector3 spawnPos = new Vector3(Random.Range(maxLeft, maxRight), yPos, -5);
+
+            if (randomRotationAndSize)
+            {
+                GameObject obj = Instantiate(meteor[i], spawnPos, Quaternion.Euler(0,0,Random.Range(0,360)));
+                float size = Random.Range(0.5f, 1.5f);
+                obj.transform.localScale = new Vector3(size, size, 1);
+            }
+            else
+            {
+                Instantiate(meteor[i], spawnPos, meteor[i].transform.rotation);
+            }
             timer = 0;
         }
 
@@ -44,6 +57,7 @@ public class MeteorSpawner : MonoBehaviour
         maxRight = mainCam.ViewportToWorldPoint(new Vector2(0.85f, 0)).x;
 
         yPos = mainCam.ViewportToWorldPoint(new Vector2(0, 1.1f)).y;
+        ready = true;
     }
 
 }

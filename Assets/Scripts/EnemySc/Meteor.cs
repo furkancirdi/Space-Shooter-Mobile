@@ -27,6 +27,7 @@ public class Meteor : Enemy
     
     public override void DeathSequence()
     {
+        base.DeathSequence();
         Destroy(gameObject);
     }
 
@@ -36,7 +37,7 @@ public class Meteor : Enemy
 
         if (otherColl.CompareTag("Player"))
         {
-            Destroy(otherColl.gameObject);
+            KillPlayer(otherColl.gameObject);
         }
 
         
