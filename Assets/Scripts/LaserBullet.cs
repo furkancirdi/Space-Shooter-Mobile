@@ -19,7 +19,7 @@ public class LaserBullet : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy == null) return;
 
-        enemy.TakeDamage(damage);
+        enemy.TakeDamage(damage, collision.ClosestPoint(transform.position));
         Destroy(gameObject);
     }
 

@@ -12,6 +12,7 @@ public class EnemyShip : Enemy
 
     private void Start()
     {
+        speed *= GameManager.SpeedMultiplier;
         startX = transform.position.x;
         phase = Random.Range(0f, Mathf.PI * 2f);
         transform.rotation = Quaternion.identity;
@@ -25,9 +26,14 @@ public class EnemyShip : Enemy
         rb.MovePosition(pos);
     }
 
+    // Olunce: buyuk ates patlamasi + gemi parcalari
     public override void DeathSequence()
     {
         base.DeathSequence();
+
+        Effects.PlayAnimation(explosionFrames, transform.position, 1.6f, 20f, Color.white, Material, SortingOrder + 1);
+        Effects.SpawnDebris(sr != null ? sr.sprite : null, transform.position, 5, 0.25f, 5f, new Color(1f, 0.6f, 0.3f), Material, SortingOrder + 2);
+
         Destroy(gameObject);
     }
 

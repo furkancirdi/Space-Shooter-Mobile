@@ -16,12 +16,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text finalScoreText;
     [SerializeField] private Text newHighScoreText;
 
+    [Header("Difficulty")]
+    [Tooltip("Zorlugun maksimuma ulasma suresi (saniye)")]
+    [SerializeField] private float difficultyRampTime = 120f;
+    [Tooltip("Maksimum zorlukta spawn sikligi carpani")]
+    [SerializeField] private float maxDifficulty = 2.5f;
+    [Tooltip("Maksimum zorlukta dusman/arka plan hiz carpani")]
+    [SerializeField] private float maxSpeedMultiplier = 1.5f;
+
+    private float elapsed;
+    private float difficultyT;
+
     private int score;
     private bool isGameOver;
 
     public bool IsGameOver => isGameOver;
 
     public static int HighScore => PlayerPrefs.GetInt(HighScoreKey, 0);
+
+    // 1'den baslar, zamanla maxDifficulty'ye cikar. Spawn sikligini olcekler.
+    public static float Difficulty =>
+        Instance != null ? Mathf.Lerp(1f, Instance.maxDifficulty, Instance.difficultyT) : 1f;
+
+    // 1'den baslar, zamanla maxSpeedMultiplier'a cikar. Dusman ve arka plan hizini olcekler.
+    public static float SpeedMultiplier =>
+        Instance != null ? Mathf.Lerp(1f, Instance.maxSpeedMultiplier, Instance.difficultyT) : 1f;
 
     private void Awake()
     {
@@ -33,6 +52,13 @@ public class GameManager : MonoBehaviour
     {
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         RefreshUI();
+    }
+
+    private void Update()
+    {
+        if (isGameOver) return;
+        elapsed += Time.deltaTime;
+        difficultyT = Mathf.Clamp01(elapsed / difficultyRampTime);
     }
 
     private void OnDestroy()

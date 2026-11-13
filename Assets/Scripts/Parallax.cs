@@ -17,7 +17,7 @@ public class Parallax : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.down*parallaxSpeed*Time.deltaTime);
+        transform.Translate(Vector3.down*parallaxSpeed*GameManager.SpeedMultiplier*Time.deltaTime);
 
         if (transform.position.y < startPos.y - spriteHeight)
         {

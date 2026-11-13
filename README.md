@@ -10,13 +10,17 @@ Touch anywhere and drag. The ship keeps its distance from your finger, so your t
 
 A meteor gives 10 points and an enemy ship gives 25. Enemy ships move in a zig-zag and take more hits. If anything touches you the run is over, and the score is saved if it is a new record.
 
+The game gets harder the longer you survive. Over two minutes, enemies spawn up to 2.5 times as often and move up to 1.5 times as fast, and the background scrolls faster with them.
+
+Hits have small effects that depend on the enemy. A meteor flashes and chips off pieces of rock, and breaks into a dust cloud and fragments when destroyed. An enemy ship flashes red with a spark where the laser hit, and blows up in a fire explosion.
+
 There is a main menu (start, quit, best score) and a game over screen (restart, back to menu).
 
 ## What I wrote and what I got help with
 
 The first part I wrote myself in February and March 2026, one small step per commit: touch movement, keeping the ship inside the screen, the meteor, the spawner and the laser.
 
-In November I came back to it and added the rest with an AI coding assistant: scoring and the saved high score, both menus, the enemy ship, and an editor script that sets up the scenes and UI. I decided what to add and how it should behave, and the assistant wrote most of that code.
+In November I came back to it and added the rest with an AI coding assistant: scoring and the saved high score, both menus, the enemy ship, the difficulty ramp, hit effects, and an editor script that sets up the scenes and UI. I decided what to add and how it should behave, and the assistant wrote most of that code.
 
 ## Code
 
@@ -26,7 +30,8 @@ Everything is under `Assets/Scripts`.
 - `PlayerShooting.cs` and `LaserBullet.cs` handle firing and hits
 - `EnemySc/Enemy.cs` is the base class with health and score value. `Meteor.cs` and `EnemyShip.cs` only add their own movement.
 - `EnemySc/MeteorSpawner.cs` spawns both enemy types. Positions come from the camera, so it works on different screen ratios.
-- `GameManager.cs` keeps the score, the high score (PlayerPrefs) and the game over flow
+- `GameManager.cs` keeps the score, the high score (PlayerPrefs), the difficulty over time and the game over flow
+- `Effects/` plays the explosion animation and the flying debris, built in code so no extra prefabs are needed
 - `Parallax.cs` scrolls the background layers
 - `Editor/SpaceShooterSetup.cs` adds a menu item, Tools > Space Shooter > Setup Game, that rebuilds the menu scene, HUD and enemy ship prefab
 
@@ -40,5 +45,4 @@ For a phone build, `MainMenu` has to be first in the scene list and `SampleScene
 
 - Power-ups (the sprites are in the project, nothing uses them yet)
 - Enemies that shoot back, and a boss
-- Explosions and sound
-- Difficulty that goes up over time
+- Sound

@@ -29,7 +29,8 @@ public class MeteorSpawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > spawnTime)
+        // Zorluk arttikca spawn araligi kisalir
+        if (timer > spawnTime / GameManager.Difficulty)
         {
             i = Random.Range(0, meteor.Length);
             Vector3 spawnPos = new Vector3(Random.Range(maxLeft, maxRight), yPos, -5);

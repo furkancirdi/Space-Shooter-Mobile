@@ -22,6 +22,7 @@ public static class SpaceShooterSetup
     private const string FontPath = "Assets/Sprites/Fonts/ethnocentric rg.otf";
     private const string BackgroundSpritePath = "Assets/Sprites/Backgrounds/BackgroundBase_1024x2048.png";
     private const string EnemySpritePath = "Assets/Sprites/Enemies/Enemies_128.png";
+    private const string ExplosionSpritePath = "Assets/Sprites/Enemies/Explosion_128.png";
 
     private const string GeneratedTag = "[Generated]";
 
@@ -76,6 +77,13 @@ public static class SpaceShooterSetup
         so.FindProperty("health").floatValue = 4;
         so.FindProperty("rb").objectReferenceValue = rb;
         so.FindProperty("scoreValue").intValue = 25;
+        so.FindProperty("hitFlashColor").colorValue = new Color(1f, 0.4f, 0.4f);
+        Sprite[] frames = AssetDatabase.LoadAllAssetsAtPath(ExplosionSpritePath).OfType<Sprite>()
+            .OrderBy(f => int.Parse(f.name.Substring(f.name.LastIndexOf('_') + 1))).ToArray();
+        SerializedProperty framesProp = so.FindProperty("explosionFrames");
+        framesProp.arraySize = frames.Length;
+        for (int i = 0; i < frames.Length; i++)
+            framesProp.GetArrayElementAtIndex(i).objectReferenceValue = frames[i];
         so.ApplyModifiedPropertiesWithoutUndo();
 
         GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, EnemyShipPrefabPath);

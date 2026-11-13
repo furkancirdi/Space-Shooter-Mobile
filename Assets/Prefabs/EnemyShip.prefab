@@ -175,3 +175,14 @@ MonoBehaviour:
   speed: 3
   zigzagAmplitude: 1.5
   zigzagFrequency: 2
+  explosionFrames:
+  - {fileID: -5099149957513156468, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -1371452729320050421, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 1245575517274949477, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -3909064074804168476, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 4039528069745275938, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -522151189137053711, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 3063563694982225378, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -4741979407071473778, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 8594743481483171016, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  hitFlashColor: {r: 1, g: 0.4, b: 0.4, a: 1}

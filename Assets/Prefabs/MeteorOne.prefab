@@ -108,9 +108,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meteor
   health: 2
   rb: {fileID: 2156211871984942832}
-  minSpeed: 8
-  maxSpeed: 15
+  minSpeed: 3
+  maxSpeed: 6
   rotateSpeed: 100
+  explosionFrames:
+  - {fileID: -5099149957513156468, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -1371452729320050421, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 1245575517274949477, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -3909064074804168476, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 4039528069745275938, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -522151189137053711, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 3063563694982225378, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -4741979407071473778, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 8594743481483171016, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  hitFlashColor: {r: 1, g: 0.75, b: 0.5, a: 1}
 --- !u!50 &2156211871984942832
 Rigidbody2D:
   serializedVersion: 5
