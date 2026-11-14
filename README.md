@@ -4,6 +4,13 @@ A portrait arcade shooter for phones, made in Unity 6 with C#. You drag the ship
 
 This was my first Unity project. I started it to learn how touch input, prefabs and spawning work on mobile.
 
+<p align="center">
+  <img src="docs/screenshots/menu.png" width="200" alt="Main menu">
+  <img src="docs/screenshots/gameplay.png" width="200" alt="Meteor breaking apart">
+  <img src="docs/screenshots/explosion.png" width="200" alt="Enemy ship and meteor explosion">
+  <img src="docs/screenshots/gameover.png" width="200" alt="Game over screen">
+</p>
+
 ## How it plays
 
 Touch anywhere and drag. The ship keeps its distance from your finger, so your thumb doesn't cover it. Lasers fire automatically.
@@ -28,7 +35,7 @@ Everything is under `Assets/Scripts`.
 
 - `PlayerControls.cs` handles touch drag and screen limits
 - `PlayerShooting.cs` and `LaserBullet.cs` handle firing and hits
-- `EnemySc/Enemy.cs` is the base class with health and score value. `Meteor.cs` and `EnemyShip.cs` only add their own movement.
+- `EnemySc/Enemy.cs` is the base class with health, score value and the hit flash. `Meteor.cs` and `EnemyShip.cs` add their own movement and their own hit and death effects.
 - `EnemySc/MeteorSpawner.cs` spawns both enemy types. Positions come from the camera, so it works on different screen ratios.
 - `GameManager.cs` keeps the score, the high score (PlayerPrefs), the difficulty over time and the game over flow
 - `Effects/` plays the explosion animation and the flying debris, built in code so no extra prefabs are needed
