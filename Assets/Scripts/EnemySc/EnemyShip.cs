@@ -8,38 +8,57 @@ public class EnemyShip : Enemy
     [SerializeField] private float zigzagFrequency = 2f;
 
     private float startX;
-    private float phase;
+    private float direction;
+    private float age;
 
     private void Start()
     {
         speed *= GameManager.SpeedMultiplier;
-        startX = transform.position.x;
-        phase = Random.Range(0f, Mathf.PI * 2f);
+        health *= Levels.EnemyHealth(Progress.Level);
         transform.rotation = Quaternion.identity;
+
+        // Zikzak ekranin disina tasmasin diye merkez cizgisi kenarlardan uzak tutulur.
+        // Gemi bu sirada ekranin ustunde oldugu icin kaydirma gorunmez.
+        float margin = zigzagAmplitude + 0.5f;
+        startX = Mathf.Clamp(transform.position.x, Playfield.Left + margin, Playfield.Right - margin);
+        direction = Random.value < 0.5f ? -1f : 1f;
+
+        Vector3 p = transform.position;
+        p.x = startX;
+        transform.position = p;
+        rb.position = p;
     }
 
     private void FixedUpdate()
     {
+        // Salinim sifirdan baslar: gemi oldugu yerden yumusakca zikzaga girer, sicramaz
+        age += Time.fixedDeltaTime;
         Vector2 pos = rb.position;
         pos.y -= speed * Time.fixedDeltaTime;
-        pos.x = startX + Mathf.Sin(Time.time * zigzagFrequency + phase) * zigzagAmplitude;
+        pos.x = startX + Mathf.Sin(age * zigzagFrequency) * zigzagAmplitude * direction;
         rb.MovePosition(pos);
     }
 
-    // Olunce: buyuk ates patlamasi + gemi parcalari
-    public override void DeathSequence()
+    protected override void ApplyTheme()
     {
-        base.DeathSequence();
+        UseThemedSprite(GameAssets.I.themeShips);
+    }
 
+    // Olunce: buyuk ates patlamasi
+    protected override void DeathEffects()
+    {
         Effects.PlayAnimation(explosionFrames, transform.position, 1.6f, 20f, Color.white, Material, SortingOrder + 1);
-        Effects.SpawnDebris(sr != null ? sr.sprite : null, transform.position, 5, 0.25f, 5f, new Color(1f, 0.6f, 0.3f), Material, SortingOrder + 2);
+    }
 
-        Destroy(gameObject);
+    // Gemi parcalari da zincire katilir
+    protected override void SpawnShards()
+    {
+        EmitShards(5, 0.25f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) KillPlayer(other.gameObject);
+        if (other.CompareTag("Player")) OnPlayerContact();
     }
 
     private void OnBecameInvisible()

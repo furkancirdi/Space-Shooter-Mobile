@@ -77,6 +77,7 @@ public static class SpaceShooterSetup
         so.FindProperty("health").floatValue = 4;
         so.FindProperty("rb").objectReferenceValue = rb;
         so.FindProperty("scoreValue").intValue = 25;
+        so.FindProperty("dropChance").floatValue = 0.07f;
         so.FindProperty("hitFlashColor").colorValue = new Color(1f, 0.4f, 0.4f);
         Sprite[] frames = AssetDatabase.LoadAllAssetsAtPath(ExplosionSpritePath).OfType<Sprite>()
             .OrderBy(f => int.Parse(f.name.Substring(f.name.LastIndexOf('_') + 1))).ToArray();

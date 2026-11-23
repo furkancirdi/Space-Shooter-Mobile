@@ -11,6 +11,7 @@ public class LaserBullet : MonoBehaviour
     void Start()
     {
         rb.linearVelocity = transform.up * speed;
+        damage *= Progress.DamageMultiplier;
     }
 
 

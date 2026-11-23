@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ee296605844478b4f75a11eed350f0, type: 3}
+  m_Name: GameAssets
+  m_EditorClassIdentifier: Assembly-CSharp::GameAssets
+  shooterSprite: {fileID: 9175300556791635701, guid: 229856d4684e2bd4fa2a34bea1624a3f, type: 3}
+  bossSprite: {fileID: -4579360479164977590, guid: fe4ff63023b3a3048ac417999eef9cfe, type: 3}
+  enemyBulletSprite: {fileID: -5337024793273118776, guid: e970636b6ffcac44b9fed07dd360d42e, type: 3}
+  bossBulletSprite: {fileID: -1816118457319650677, guid: 4541bee88343383458f69b433eb55a3d, type: 3}
+  healSprite: {fileID: -3153155111222769132, guid: 08654bdd395ce8d4c975ca2a09c2626f, type: 3}
+  tripleShotSprite: {fileID: -3378868131106305330, guid: 02773efb1cb9d504da1afd74113b7802, type: 3}
+  shieldPickupSprite: {fileID: 6370590800602317213, guid: 4b83046a3af3b2d4c8403cad026b2d0d, type: 3}
+  shieldBubbleSprite: {fileID: -5825654283077901399, guid: 0e7f8e25998e89c41b3593edf1dbad36, type: 3}
+  heartSprite: {fileID: 6591160121764855195, guid: 4f8f58c3eed4fee4289ad8b276348fcb, type: 3}
+  coinSprite: {fileID: -6030261802858494152, guid: d24be080928d59f4eabf900d43a5aa19, type: 3}
+  themeShips:
+  - {fileID: 1646711317938181096, guid: 5d62c918d06f4486d267d1af513713c9, type: 3}
+  - {fileID: 1646711317938181096, guid: 13ce55eaf34a4572b5cebe04c22d4135, type: 3}
+  - {fileID: 1646711317938181096, guid: e554098c1cae202605174cdafb735a4d, type: 3}
+  - {fileID: 1646711317938181096, guid: 04a80ca76f6c80bad64134c6e8735ae6, type: 3}
+  themeShooters:
+  - {fileID: 9175300556791635701, guid: 5d62c918d06f4486d267d1af513713c9, type: 3}
+  - {fileID: 9175300556791635701, guid: 13ce55eaf34a4572b5cebe04c22d4135, type: 3}
+  - {fileID: 9175300556791635701, guid: e554098c1cae202605174cdafb735a4d, type: 3}
+  - {fileID: 9175300556791635701, guid: 04a80ca76f6c80bad64134c6e8735ae6, type: 3}
+  themeBosses:
+  - {fileID: -4579360479164977590, guid: 1e926e35eae615f48f8b8219e9023ec0, type: 3}
+  - {fileID: -4579360479164977590, guid: f01a6d20cff6af490bdc3531f5b3e90c, type: 3}
+  - {fileID: -4579360479164977590, guid: 2ddc3d072d615ab9b44466939aad61d8, type: 3}
+  - {fileID: -4579360479164977590, guid: fdd627b556681d11ceb904df76101d74, type: 3}
+  themeBackgrounds:
+  - {fileID: 1425959535958349274, guid: 0a7784a40afe0cd89d67bd7c08a382e8, type: 3}
+  - {fileID: 21300000, guid: ed0925d7b467c5f8d2f5ac28010a1e8c, type: 3}
+  - {fileID: 21300000, guid: 28c39724a63f91a47f390248d34e49b1, type: 3}
+  - {fileID: 1425959535958349274, guid: 2a193d2fb37812674efefd2392953490, type: 3}
+  - {fileID: 21300000, guid: cc52c63327a516a28ab8c75f76957f9e, type: 3}
+  - {fileID: 21300000, guid: f79b067691fc0c30d7f94d8628840ad3, type: 3}
+  - {fileID: 1425959535958349274, guid: e511896315ab477817f0fb63a3bad0d3, type: 3}
+  - {fileID: 21300000, guid: 7c010dff0725d19e3fc0728232d9791b, type: 3}
+  - {fileID: 21300000, guid: 6d3ae642e48e231a4ae7d9561d904661, type: 3}
+  - {fileID: 1425959535958349274, guid: 4b87c316c77462603a4e0a9425178313, type: 3}
+  - {fileID: 21300000, guid: 5b5ea4ade31b7370a4f7538c928da4a3, type: 3}
+  - {fileID: 21300000, guid: 8b583bd9d05d799a36b3eb0c89e994f6, type: 3}
+  explosionFrames:
+  - {fileID: -5099149957513156468, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -1371452729320050421, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 1245575517274949477, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -3909064074804168476, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 4039528069745275938, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -522151189137053711, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 3063563694982225378, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: -4741979407071473778, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  - {fileID: 8594743481483171016, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
+  spriteMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  font: {fileID: 12800000, guid: 5773cd7da938b2e42b2d8f0d320a13a5, type: 3}
+  laser: {fileID: 8300000, guid: d2e29fb3728f4bc194a99f15e82ed4c0, type: 3}
+  hit: {fileID: 8300000, guid: 1c029b9baa2d4fe2b48c2e2773f8afb3, type: 3}
+  explosion: {fileID: 8300000, guid: 4ea1beeb84d64fdfa8d6e45c4de78ae0, type: 3}
+  explosionBig: {fileID: 8300000, guid: 408545cc68054b7589dc4b834e52c91f, type: 3}
+  chain: {fileID: 8300000, guid: b04a5329c70e42f789d3f48df6b57ded, type: 3}
+  powerup: {fileID: 8300000, guid: c35bd0becc824ee8b58fd093adfa06bb, type: 3}
+  playerHit: {fileID: 8300000, guid: bb82fe3c26c242298ac617751d856f42, type: 3}
+  gameOver: {fileID: 8300000, guid: 1ceaf70fcf854774b6f6fdaafe643505, type: 3}
+  enemyShoot: {fileID: 8300000, guid: d8a250da02844c26b5a73280f60195da, type: 3}
+  bossWarning: {fileID: 8300000, guid: 816d3887b4b64ea8824c4bcdb015f5ef, type: 3}
+  shieldBlock: {fileID: 8300000, guid: 14090659ab1243ad93d175273a168048, type: 3}
+  uiClick: {fileID: 8300000, guid: ea2f22e36f5e4619bc3e70aa268af6f5, type: 3}
+  coin: {fileID: 8300000, guid: 7a1c0de5b0c14e0e9f3a5c2d1e4b6a01, type: 3}
+  levelComplete: {fileID: 8300000, guid: 7a1c0de5b0c14e0e9f3a5c2d1e4b6a02, type: 3}
+  buy: {fileID: 8300000, guid: 7a1c0de5b0c14e0e9f3a5c2d1e4b6a03, type: 3}
+  music: {fileID: 8300000, guid: 55cc92cc8c0d409c9f26913a77422d44, type: 3}

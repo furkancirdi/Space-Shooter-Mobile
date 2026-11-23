@@ -15,6 +15,11 @@ public class Meteor : Enemy
     {
         speed = Random.Range(minSpeed, maxSpeed) * GameManager.SpeedMultiplier;
         rb.linearVelocity = Vector2.down * speed;
+
+        // Boyut dayanikliligi ve puani belirler: kucuk 1 can, orta 2, buyuk 3
+        health = Mathf.Max(1, Mathf.RoundToInt(health * Size * Levels.EnemyHealth(Progress.Level)));
+        coinChance = 0.2f;
+        scoreValue = Mathf.Max(5, Mathf.RoundToInt(scoreValue * Size / 5f) * 5);
     }
 
     void Update()
@@ -30,15 +35,16 @@ public class Meteor : Enemy
         Effects.SpawnDebris(sr != null ? sr.sprite : null, hitPoint, 3, 0.12f * Size, 4f, Color.white, Material, SortingOrder + 1);
     }
 
-    // Olunce: toz bulutu + etrafa sacilan kaya parcalari
-    public override void DeathSequence()
+    // Olunce: toz bulutu
+    protected override void DeathEffects()
     {
-        base.DeathSequence();
-
         Effects.PlayAnimation(explosionFrames, transform.position, 0.9f * Size, 22f, DustTint, Material, SortingOrder + 1);
-        Effects.SpawnDebris(sr != null ? sr.sprite : null, transform.position, 7, 0.22f * Size, 6f, Color.white, Material, SortingOrder + 2);
+    }
 
-        Destroy(gameObject);
+    // Zincirleme patlama: buyuk meteor daha cok ve daha buyuk parca sacar
+    protected override void SpawnShards()
+    {
+        EmitShards(3 + Mathf.RoundToInt(Size * 2f), 0.28f * Size);
     }
 
     private float Size => transform.localScale.x;
@@ -49,7 +55,7 @@ public class Meteor : Enemy
 
         if (otherColl.CompareTag("Player"))
         {
-            KillPlayer(otherColl.gameObject);
+            OnPlayerContact();
         }
 
 

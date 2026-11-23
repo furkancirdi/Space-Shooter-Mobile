@@ -175,6 +175,7 @@ MonoBehaviour:
   speed: 3
   zigzagAmplitude: 1.5
   zigzagFrequency: 2
+  dropChance: 0.07
   explosionFrames:
   - {fileID: -5099149957513156468, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
   - {fileID: -1371452729320050421, guid: 52bb54d1fcd459443abffbd9cadfc7fa, type: 3}
